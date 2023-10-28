@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "emi_grouping",
+	"version": "${version}",
+	"name": "emi_group[ing",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/emi_grouping/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"m0nkeypr0grammer.emi.grouping.Emi_grouping"
+		],
+		"client": [
+			"m0nkeypr0grammer.emi.grouping.Emi_groupingClient"
+		]
+	},
+	"mixins": [
+		"emi_grouping.mixins.json",
+		{
+			"config": "emi_grouping.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.14.24",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

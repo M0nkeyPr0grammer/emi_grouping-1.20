@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "m0nkeypr0grammer.emi.grouping.mixin.client",
+	"compatibilityLevel": "JAVA_17",
+	"client": [
+		"ExampleClientMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
