@@ -20,7 +20,7 @@ public class CollapsibleEMIMod implements ModInitializer {
 
         // Register a client tick event to check for the key press
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            while (keyBinding.wasPressed()) {
+            if (keyBinding.wasPressed()) {
                 openCollapsibleEMIGUI();
             }
         });

@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.4-SNAPSHOT'
+	id 'fabric-loom' version '1.4.4'
 	id 'maven-publish'
 }
 
@@ -44,6 +44,13 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	
+	// Manual Dependency
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+	// Specific Fabric API modules
+    modImplementation "net.fabricmc.fabric-api:fabric-api-client-event-lifecycle-v1:0.90.4+1.20.1"
+    modImplementation "net.fabricmc.fabric-api:fabric-api-client-keybinding-v1:0.90.4+1.20.1"
+
 	// Uncomment the following line to enable the deprecated Fabric API modules. 
 	// These are included in the Fabric API production distribution and allow you to update your mod to the latest modules at a later more convenient time.
 
@@ -88,14 +95,16 @@ publishing {
 
 	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
 	repositories {
-		// Add repositories to publish to here.
-		// Notice: This block does NOT have the same function as the block in the top level.
-		// The repositories here will be used for publishing your artifact, not for
-		// retrieving dependencies.
+		mavenCentral()
+		maven {
+			name = "Fabric"
+			url = "https://maven.fabricmc.net/"
+		}
 		maven {
 			name = "TerraformersMC"
-			url = "https://maven.terraformersmc.com/"
+			url = "https://maven.terraformersmc.com/releases/"
 		}
-	}
+    // Add other repositories if needed
+}
 
 }

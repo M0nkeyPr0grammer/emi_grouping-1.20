@@ -10,8 +10,8 @@ public class keypresslistener {
 
     public keypresslistener() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            while (keyBinding.wasPressed()) {
-                if (keyBinding.isPressed() && GLFW.glfwGetKey(client.getWindow().getHandle(), GLFW.GLFW_KEY_LEFT_ALT) == GLFW.GLFW_PRESS) {
+            if (keyBinding.wasPressed()) {
+                if (GLFW.glfwGetKey(client.getWindow().getHandle(), GLFW.GLFW_KEY_LEFT_ALT) == GLFW.GLFW_PRESS) {
                     // Open the GUI
                     openCollapsibleEMIGUI();
                 }
@@ -22,5 +22,6 @@ public class keypresslistener {
     private void openCollapsibleEMIGUI() {
         // Create and open the GUI
         // Implement your GUI opening logic here
+        System.out.println("Key pressed with ALT! Implement GUI opening logic here.");
     }
 }
