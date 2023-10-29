@@ -87,5 +87,25 @@ publishing {
 		// Notice: This block does NOT have the same function as the block in the top level.
 		// The repositories here will be used for publishing your artifact, not for
 		// retrieving dependencies.
+		maven {
+			name = "TerraformersMC"
+			url = "https://maven.terraformersmc.com/"
+		}
 	}
+dependencies {
+	// Fabric
+	modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"
+	modLocalRuntime "dev.emi:emi-fabric:${emi_version}"
+
+	// Forge (see below block as well if you use Forge Gradle)
+	compileOnly fg.deobf("dev.emi:emi-forge:${emi_version}:api")
+	runtimeOnly fg.deobf("dev.emi:emi-forge:${emi_version}") 
+
+	// Architectury
+	modCompileOnly "dev.emi:emi-xplat-intermediary:${emi_version}:api"
+
+	// MultiLoader Template/VanillaGradle
+	compileOnly "dev.emi:emi-xplat-mojmap:${emi_version}:api"
+}
+
 }
